@@ -46,6 +46,7 @@ public class TenantManagementHibernateService extends TenantManagementService {
 		
 		try {
 			runFlyway(databaseName);
+			super.initTenantDatabase(databaseName);
 		} catch (Exception e) {
 			throw new TenantOnTheFlyException("Error when populating schema: ", e);
 		}
